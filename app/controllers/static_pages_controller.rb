@@ -11,4 +11,21 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
+
+
+# Jorge Passos static pages
+  def index
+  end
+
+  def quemsomos
+  end
+
+  def noticias
+  end
+
+  def nossostrabalhos
+  end
+
+  def contatos
+  end
 end

@@ -3,14 +3,20 @@ Rails.application.routes.draw do
   get 'sessions/new'
   get 'users/new'
   
-  root             'static_pages#home'
-  get     'help'    => 'static_pages#help'
-  get     'about'   => 'static_pages#about'
-  get     'contact' => 'static_pages#contact'
+  # CMS admin static pages  
+  get     'admin'   => 'static_pages#admin'
   get     'signup'  => 'users#new'
   get     'login'   => 'sessions#new'
   post    'login'   => 'sessions#create'
   delete  'logout'  => 'sessions#destroy'
+
+  # Jorge Passos static pages
+  root                            'static_pages#index'
+  get     'quemsomos'          => 'static_pages#quemsomos'
+  get     'nossostrabalhos'    => 'static_pages#nossostrabalhos'
+  get     'clientes'           => 'static_pages#clientes'
+  get     'noticias'           => 'static_pages#noticias'
+  get     'contatos'           => 'static_pages#contatos'
   
   resources :users
 

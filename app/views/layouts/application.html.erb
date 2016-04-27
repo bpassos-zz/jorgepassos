@@ -1,17 +1,34 @@
-<%= render "layouts/header" %>
+<% if action_name == "index" || 
+      action_name == "quemsomos" ||
+      action_name == "nossostrabalhos" ||
+      action_name == "clientes" ||
+      action_name == "noticias" || 
+      action_name == "contatos" %>
+  <%= render "layouts/header_static" %>
+<% else %>
+  <%= render "layouts/header" %>
+<% end %>
 
-  <div class="container">
+  
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
     <%= yield %>
-    <%= render "layouts/footer" %>
+    <% if action_name == "index" || 
+      action_name == "quemsomos" ||
+      action_name == "nossostrabalhos" || 
+      action_name == "clientes" ||
+      action_name == "noticias" || 
+      action_name == "contatos" %>
+      <%= render "layouts/footer_static" %>
+    <% else %>
+      <%= render "layouts/footer" %>
+    <% end %>
 
     <!-- 
          This is a debugging tool only running in development environment 
          params is a YAML representation (hash) in this case identifies the controller and action for the page
     -->
     <%= debug(params) if Rails.env.development? %>
-  </div>
 
 </html>
